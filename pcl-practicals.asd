@@ -1,10 +1,10 @@
-(defpackage :com.gigamonkeys.practicals-system (:use :asdf :cl))
-(in-package :com.gigamonkeys.practicals-system)
+(defpackage :com.gigamonkeys.pcl-practicals-system (:use :asdf :cl))
+(in-package :com.gigamonkeys.pcl-practicals-system)
 
 #+allegro(require :aserve)
 
-(defsystem practicals
-    :name "practicals"
+(defsystem pcl-practicals
+    :name "pcl-practicals"
     :author "Peter Seibel <peter@gigamonkeys.com>"
     :version "1.0"
     :maintainer "Peter Seibel <peter@gigamonkeys.com>"
