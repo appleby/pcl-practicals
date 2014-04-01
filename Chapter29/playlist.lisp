@@ -4,7 +4,7 @@
 ;;; Two versions of silence
 
 ;; Set this variable to the filename of an MP3 of silence.
-(defparameter *silence-mp3* nil)
+(defparameter *silence-mp3* "/home/ma/Music/pcl-mp3s/30-sec-of-silence.mp3")
 
 (defun make-silent-song (title &optional (file *silence-mp3*))
   (make-instance
