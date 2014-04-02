@@ -71,12 +71,11 @@
       next-metadata)))
 
 ;;; i/o efficient version of play-current
-#+(or)
-(defun play-current (out song-source next-metadata metadata-interval)
+(defun play-current-buffered-io (out song-source next-metadata metadata-interval)
   (let ((song (current-song song-source)))
     (when song
       (let ((metadata (make-icy-metadata (title song)))
-            (buffer (make-array size :element-type '(unsigned-byte 8))))
+            (buffer (make-array metadata-interval :element-type '(unsigned-byte 8))))
         (with-open-file (mp3 (file song) :element-type '(unsigned-byte 8))
           (labels ((write-buffer (start end)
                      (if metadata-interval
