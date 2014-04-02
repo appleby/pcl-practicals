@@ -56,7 +56,7 @@
   (let ((song (current-song song-source)))
     (when song
       (let ((metadata (make-icy-metadata (title song))))
-        (with-open-file (mp3 (file song))
+        (with-open-file (mp3 (file song) :element-type '(unsigned-byte 8))
           (unless (file-position mp3 (id3-size song))
             (error "Can't skip to position ~d in ~a" (id3-size song) (file song)))
           (loop for byte = (read-byte mp3 nil nil)
@@ -77,7 +77,7 @@
     (when song
       (let ((metadata (make-icy-metadata (title song)))
             (buffer (make-array size :element-type '(unsigned-byte 8))))
-        (with-open-file (mp3 (file song))
+        (with-open-file (mp3 (file song) :element-type '(unsigned-byte 8))
           (labels ((write-buffer (start end)
                      (if metadata-interval
                        (write-buffer-with-metadata start end)
